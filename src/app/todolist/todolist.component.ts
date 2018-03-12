@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToDoMocks, ITodo } from '../todo-mock';
 
 @Component({
   selector: 'app-todolist',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  mocks = [...ToDoMocks];
 
   ngOnInit() {
+    console.log(this.mocks);
   }
-
 }
