@@ -1,9 +1,9 @@
-export interface Todo {
+export interface ITodo {
   id: number;
   value: string;
 }
 
-export const ToDoMocks: Todo[] = [
+export const ToDoMocks: ITodo[] = [
   { id: 1, value: 'Wyprowadzić psa' },
   { id: 2, value: 'Pogłaskać kota' },
   { id: 3, value: 'Pozbierać jajka' },
