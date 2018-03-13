@@ -2,7 +2,7 @@
   <li *ngFor="let mock of mocks; let i = index" [attr.data.index]="i" [class.selected]="selectedMock === mock">
     <span class="id">{{mock.id}}</span>
     <span class="value">{{mock.value}}</span>
-    <button (click)=onClick(mock) [class.done]="isDone">{{value}}</button>
+    <button (click)=onClick(mock) class="done">{{value}}</button>
     <button class="delete">DELETE</button>
   </li>
 </ul>
