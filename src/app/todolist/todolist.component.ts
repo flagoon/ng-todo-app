@@ -10,11 +10,15 @@ export class TodolistComponent implements OnInit {
   constructor() {}
 
   mocks = [...ToDoMocks];
-  arraySize = this.mocks.length;
 
   onClick(mock: ITodo): void {
-    console.log(mock);
-    mock.done = !mock.done;
+    const index = this.mocks.indexOf(mock);
+    if (!mock.done) {
+      mock.done = !mock.done;
+      console.log(`[${mock.value}] was done.`);
+    } else {
+      this.mocks.splice(index, 1);
+    }
   }
 
   ngOnInit() {
