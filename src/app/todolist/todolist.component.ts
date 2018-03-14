@@ -21,6 +21,14 @@ export class TodolistComponent implements OnInit {
     }
   }
 
+  onSubmit(form) {
+    const value = form.form.value.add_todo;
+    const todo: ITodo = Object.assign({}, { value: value }, { done: false });
+    console.log(todo);
+    this.mocks.unshift(todo);
+    form.reset();
+  }
+
   ngOnInit() {
     console.log(this.mocks);
   }
