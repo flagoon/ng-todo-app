@@ -1,14 +1,24 @@
-<ul>
-  <li *ngFor="let mock of mocks; let i = index" [attr.data-index]="i" [class.selected]="mock.done">
-    <span class="id">{{mock.id}}</span>
-    <span class="value">{{mock.value}}</span>
-    <button (click)=[onClick(mock)] [class.delete]="mock.done" [class.done]="!mock.done">
-      <span *ngIf="!mock.done">
-        <i class="fa fa-check done"></i>
-      </span>
-      <span *ngIf="mock.done">
-        <i class="fa fa-trash"></i>
-      </span>
+<div>
+  <ul>
+    <li *ngFor="let mock of mocks; let i = index" [attr.data-index]="i" [class.selected]="mock.done">
+      <span class="id">{{i + 1}}</span>
+      <span class="value">{{mock.value}}</span>
+      <button (click)=[onClick(mock)] [class.delete]="mock.done" [class.done]="!mock.done">
+        <span *ngIf="!mock.done">
+          <i class="fa fa-check done"></i>
+        </span>
+        <span *ngIf="mock.done">
+          <i class="fa fa-trash"></i>
+        </span>
+      </button>
+    </li>
+  </ul>
+  <form (ngSubmit)=[onSubmit(todoForm)] #todoForm="ngForm" class="todoForm">
+    <label for="add-todo">
+      <input type="text" name="add_todo" id="add-todo" [(ngModel)]="todo" placeholder="Add todo...">
+    </label>
+    <button type="submit" class="submit">
+      <i class="fa fa-sign-in"></i>
     </button>
-  </li>
-</ul>
+  </form>
+</div>
