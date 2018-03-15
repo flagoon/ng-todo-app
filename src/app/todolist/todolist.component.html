@@ -2,7 +2,7 @@
   <ul>
     <li *ngFor="let mock of mocks; let i = index" [attr.data-index]="i" [class.selected]="mock.done">
       <span class="id">{{i + 1}}</span>
-      <span class="value">{{mock.value}}</span>
+      <span class="value">{{mock.value | shortString}}</span>
       <button (click)=[onClick(mock)] [class.delete]="mock.done" [class.done]="!mock.done">
         <span *ngIf="!mock.done">
           <i class="fa fa-check done"></i>
