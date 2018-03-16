@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ITodo } from './todo-mock';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  longCondition = false;
+  longTodo: ITodo = {
+    value: '',
+    done: false
+  };
+
+  OnInit() {}
+
+  somethingHovered(testval) {
+    if (testval.value.length > 25) {
+      this.longCondition = true;
+      this.longTodo = testval;
+    } else {
+      this.longCondition = false;
+    }
+  }
 }

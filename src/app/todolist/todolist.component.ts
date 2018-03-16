@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToDoMocks, ITodo } from '../todo-mock';
 
 @Component({
@@ -9,9 +9,11 @@ import { ToDoMocks, ITodo } from '../todo-mock';
 export class TodolistComponent implements OnInit {
   constructor() {}
 
+  @Output() somethingHovered = new EventEmitter<ITodo>();
+
   mocks = [...ToDoMocks];
 
-  onClick(mock: ITodo): void {
+  public onClick(mock: ITodo): void {
     const index = this.mocks.indexOf(mock);
     if (!mock.done) {
       mock.done = !mock.done;
@@ -21,10 +23,14 @@ export class TodolistComponent implements OnInit {
     }
   }
 
+  onHover(mock: ITodo): void {
+    this.somethingHovered.emit(mock);
+  }
+
   onSubmit(form) {
     const value = form.form.value.add_todo;
     if (value) {
-      const todo: ITodo = Object.assign({}, { value: value }, { done: false });
+      const todo: ITodo = Object.assign({}, { value }, { done: false });
       console.log(todo);
       this.mocks.unshift(todo);
     } else {

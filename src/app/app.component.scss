@@ -8,3 +8,21 @@
     margin: 0;
   }
 }
+
+.longTodo {
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid red;
+  width: 20rem;
+  font-size: 0.7rem;
+  transition: 0.5s opacity;
+}
+
+.showTodo {
+  opacity: 1;
+}
+
+.dontShowTodo {
+  opacity: 0;
+  transition: 0.5s opacity;
+}
