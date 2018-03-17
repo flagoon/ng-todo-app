@@ -2,4 +2,4 @@
     <h1>Todos:</h1>
     <app-todolist (somethingHovered)="somethingHovered($event)" dupa="testtesttest"></app-todolist>
 </div>
-<div class="longTodo" [class.showTodo]="longCondition" [class.dontShowTodo]="!longCondition" [innerHTML]="longTodo.value"></div>
+<div class="longTodo" [ngClass]="longCondition ? 'showTodo' : 'dontShowTodo'" [innerHTML]="longTodo.value"></div>

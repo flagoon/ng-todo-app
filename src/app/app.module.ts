@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { ShortStringPipe } from './todolist/short-string.pipe';
 import { TodoMockService } from './todo-mock.service';
-import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, TodolistComponent, ShortStringPipe],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule],
   providers: [TodoMockService],
   bootstrap: [AppComponent]
 })

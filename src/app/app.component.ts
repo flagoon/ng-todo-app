@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ITodo } from './todo-mock';
+import { ITodo } from './itodo';
 
 @Component({
   selector: 'app-root',
