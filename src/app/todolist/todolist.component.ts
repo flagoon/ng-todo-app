@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ToDoMocks, ITodo } from '../todo-mock';
+import { ToDoMocks } from '../todo-mock';
+import { ITodo } from '../itodo';
+import { TodoMockService } from '../todo-mock.service';
 
 @Component({
   selector: 'app-todolist',
@@ -7,11 +9,11 @@ import { ToDoMocks, ITodo } from '../todo-mock';
   styleUrls: ['./todolist.component.scss']
 })
 export class TodolistComponent implements OnInit {
-  constructor() {}
+  constructor(private service: TodoMockService) {}
 
   @Output() somethingHovered = new EventEmitter<ITodo>();
 
-  mocks = [...ToDoMocks];
+  mocks = this.service.getData();
 
   public onClick(mock: ITodo): void {
     const index = this.mocks.indexOf(mock);

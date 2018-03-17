@@ -1,8 +1,5 @@
-export interface ITodo {
-  value: string;
-  done: boolean;
-}
-
+import { ITodo } from './itodo';
+ 
 export const ToDoMocks: ITodo[] = [
   { value: 'Wyprowadzić psa', done: false },
   { value: 'Pogłaskać kota', done: false },
